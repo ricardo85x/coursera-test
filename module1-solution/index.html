@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="Module1App">
+<html ng-app="LunchCheck">
   <head>
     <meta charset="utf-8">
-    <title>Module 1 Solution</title>
+    <title>Module 1 Solution - By Ricardo </title>
+    <script src="angular.min.js"></script>
     <script src="app.js"></script>
-
+    <link rel="stylesheet" href="app.css" type="text/css">
   </head>
-  <body ng-controller="LunchController">
-
-    <input type="text" ng-model="foods" placeholder="Enter your itens for lunch CSV">
-    <br/>
+  <body ng-controller="LunchCheckController" ng-class="warn">
+    <h3>Please enter food items bellow*</h3>
+    <input type="text" ng-model="foods" placeholder="SEPARE BY CSV">
     <button ng-click="checkFood()">Check If Too Much</button>
-
+    <p>{{message}}</p>
+    <h5>* We Do NOT consider and empty item, i.e., , , as an item</h5>
   </body>
 </html>

@@ -1,26 +1,45 @@
 (function(){
   'use strict';
 
-  angular.module('Module1App', [])
-  .controller('LunchController', LunchController) {
+  angular.module('LunchCheck', [])
+  .controller('LunchCheckController', LunchCheckController);
 
-    LunchController.$inject = "$scope";
+  LunchCheckController.$inject = ["$scope"];
 
-    function LunchController($scope) {
+  function LunchCheckController($scope) {
 
-      $scope.foods = "";
+    $scope.foods = "";
+    $scope.message = "";
+    $scope.warn = "";
 
-      $scope.checkFood = function(){
+    $scope.checkFood = function(){
 
-        $scope.foods = $scope.foods.trim();
+      $scope.foods = $scope.foods.trim();
+      var tmpItens = $scope.foods.split(",")
 
-        var items = $scope.foods.split(",")
+      var items = []
+      angular.forEach(tmpItens, function(item){
+        var item_trim = item.trim();
+        if (item_trim != ""){
+          items.push(item_trim)
+        }
+      });
 
-        alert(item.length);
+      if(items.length == 0) {
+        $scope.warn = "warning";
+        $scope.message = "Please enter data first";
+      }else {
+        if(items.length < 4){
+          $scope.message = "Enjoy!";
+        } else {
+          $scope.message = "Too much!";
+        }
+        $scope.warn = "correct";
+      }
 
-      };
     };
-
   };
+
+
 
 })();

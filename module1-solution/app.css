@@ -1,0 +1,15 @@
+.warning p{
+  color: red
+}
+
+.correct p{
+  color: green;
+}
+
+.warning input {
+  border-color: red;
+}
+
+.correct input {
+  border-color: green;
+}
