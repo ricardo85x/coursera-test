@@ -4,31 +4,24 @@
   angular.module('ShoppingListCheckOff', [])
   .controller('ToBuyShoppingController', ToBuyShoppingController)
   .controller('AlreadyBoughtShoppingController', AlreadyBoughtShoppingController)
-  .service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+  .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
   ToBuyShoppingController.$inject = ['ShoppingListCheckOffService'];
-  AlreadyBoughtShoppingController.$insect = ['ShoppingListCheckOffService'];
-
-
   function ToBuyShoppingController(ShoppingListCheckOffService){
-
     var list = this;
     list.items = ShoppingListCheckOffService.getToBuy();
-
     list.buy = function(idx){
-      ShoppingListCheckOffService.buy(idx)
-
+      ShoppingListCheckOffService.buy(idx);
       if(list.items.length == 0){
-        list.finish = "Everything is bought!"
+        list.finish = "Everything is bought!";
       }
     }
-
   }
 
+  AlreadyBoughtShoppingController.$inject = ['ShoppingListCheckOffService'];
   function AlreadyBoughtShoppingController(ShoppingListCheckOffService){
     var list = this;
     list.items = function(){
-
       var bought_items = ShoppingListCheckOffService.getBought();
       if(bought_items.length == 0){
         list.empty = "Nothing bought yet.";
@@ -67,6 +60,5 @@
     }
 
   }
-
 
 })();
