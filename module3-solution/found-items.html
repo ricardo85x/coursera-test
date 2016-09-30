@@ -1,0 +1,21 @@
+<div class="row">
+
+  <div class="col-md-8">
+    <ol>
+
+
+      <li ng-repeat="item in list.found.foundItems">
+
+        <p>
+          <label for="name">Name: </label> {{ item.name }}<br/>
+          <label for="short_name">Short Name: </label> {{ item.short_name }}<br/>
+          <label for="description">Description: </label> {{ item.description }}<br/>
+          <button class="btn btn-danger" ng-click="list.found.removeItem({'index': $index })"
+              name="button">Don't want this one
+          </button>
+        </p>
+
+      </li>
+    </ol>
+  </div>
+</div>
