@@ -1,0 +1,16 @@
+<ol class="breadcrumb">
+  <li ui-sref="home"><b>MenuApp</b></li>
+  <li><a ui-sref="home">Home</a></li>
+  <li role="presentation"><a ui-sref="categories">Categories</a></li>
+  <li class="active">Items</li>
+</ol>
+
+<div class="container">
+
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="item in $ctrl.list.menu_items">
+      {{ item.name }}
+    </li>
+  </ul>
+
+</div>

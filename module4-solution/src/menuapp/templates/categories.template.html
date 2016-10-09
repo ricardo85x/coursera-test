@@ -1,0 +1,15 @@
+<ol class="breadcrumb">
+  <li ui-sref="home"><b>MenuApp</b></li>
+  <li><a ui-sref="home">Home</a></li>
+  <li class="active">Categories</li>
+</ol>
+
+<div class="container">
+
+  <ul class="list-group">
+      <li class="list-group-item" ng-repeat="item in $ctrl.list">
+          <p>{{ item.name }} ({{ item.short_name }}) - <a ui-sref="items({shortName: item.short_name })">Details</a> </p>
+      </li>
+  </ul>
+
+</div>
